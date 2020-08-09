@@ -62,6 +62,50 @@ class MyPage extends StatelessWidget {
                 ),
               ),
             ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+                color: Colors.grey[850],
+              ),
+              title: Text('home'),
+              onTap: () {
+                print('home is clicked!');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.settings,
+                color: Colors.grey[850],
+              ),
+              title: Text('Settings'),
+              onTap: () {
+                print('settings is clicked!');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.question_answer,
+                color: Colors.grey[850],
+              ),
+              title: Text('QNA'),
+              onTap: () {
+                print('QNA is clicked!');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.time_to_leave,
+                color: Colors.grey[850],
+              ),
+              title: Text('TTL'),
+              onTap: () {
+                print('TTL is clicked!');
+              },
+              trailing: Icon(Icons.add),
+            ),
           ],
         ),
       ),
