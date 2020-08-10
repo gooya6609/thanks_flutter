@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,55 +6,55 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'toast message',
-      debugShowCheckedModeBanner: false,
-      color: Colors.blue,
-      home: MyPage(),
+      title: 'Navigation App',
+      theme: ThemeData(
+        backgroundColor: Colors.red,
+      ),
+      home: FirstPage(),
     );
   }
 }
 
-class MyPage extends StatelessWidget {
+class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('toast message'),
-        backgroundColor: Colors.blue,
-        centerTitle: true,
+        title: Text('First Page'),
+        backgroundColor: Colors.amber[800],
       ),
-      body: MyToastBtn(),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return SecondPage();
+                },
+              ),
+            );
+          },
+          child: Text('Go to the Second Page'),
+        ),
+      ),
     );
   }
 }
 
-class MyToastBtn extends StatelessWidget {
+class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: FlatButton(
-        onPressed: () {
-          flutterToast();
-        },
-        child: Text(
-          'Show me',
-          style: TextStyle(
-            color: Colors.white,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Page'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {},
+          child: Text('Go to the First Page'),
         ),
-        color: Colors.blue,
       ),
     );
   }
-}
-
-void flutterToast() {
-  Fluttertoast.showToast(
-    msg: 'Hello',
-    textColor: Colors.white,
-    backgroundColor: Colors.amber,
-    gravity: ToastGravity.BOTTOM,
-    fontSize: 20.0,
-    toastLength: Toast.LENGTH_SHORT,
-  );
 }
